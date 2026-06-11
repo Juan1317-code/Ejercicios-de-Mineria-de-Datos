@@ -30,7 +30,7 @@ Juan Ocampo
 - [Ejemplo básico simple](EjemploBasico.ipynb)  
 - [Ej_TiposDatos.ipynb](Ej_TiposDatos.ipynb)  
 - [Ej_LimpiezaDatos.ipynb](Ej_LimpiezaDatos.ipynb)  
-- [HolaMundo (1)](HolaMundo (1).ipynb)
+- [HolaMundo (1)](HolaMundo(1).ipynb)
 
 **Actividades**  
 - Actividad 2
