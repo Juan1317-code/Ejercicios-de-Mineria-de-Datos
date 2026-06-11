@@ -31,7 +31,7 @@ Juan Ocampo
 - [Ej_TiposDatos.ipynb](Ej_TiposDatos.ipynb)  
 - [Ej_LimpiezaDatos.ipynb](Ej_LimpiezaDatos.ipynb)  
 - [HolaMundo (1).ipynb](HolaMundo20%(1).ipynb)
-
+- [MINERIA_DE_DATOS.ipynb](MINERIA_DE_DATOS.ipynb)
 **Actividades**  
 - Actividad 2
 - actividad nu
