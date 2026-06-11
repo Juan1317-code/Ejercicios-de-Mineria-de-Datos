@@ -29,7 +29,8 @@ Juan Ocampo
 **Contenido**  
 - Ejemplo básico simple  
 - Ej_TiposDatos.ipynb  
-- Ej_LimpiezaDatos.ipynb  
+- Ej_LimpiezaDatos.ipynb
+- Holamundo(1).pynb
 
 **Actividades**  
 - Actividad 2
