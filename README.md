@@ -32,7 +32,8 @@ Juan Ocampo
 - Ej_LimpiezaDatos.ipynb  
 
 **Actividades**  
-- actividad numero 1
+- Ejercicios-de-Mineria-de-Datos
+/actividad numero 1
 - Actividad 2  
 - Actividad 3  
 - Actividad 4  
