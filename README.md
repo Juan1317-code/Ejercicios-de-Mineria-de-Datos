@@ -27,10 +27,10 @@ Juan Ocampo
 - [Perfil GitHub](https://github.com/Juan1317-code)
 
 **Contenido**  
-- Ejemplo básico simple  
-- Ej_TiposDatos.ipynb  
-- Ej_LimpiezaDatos.ipynb
-- [Holamundo(1).ipynb]
+- [Ejemplo básico simple](EjemploBasico.ipynb)  
+- [Ej_TiposDatos.ipynb](Ej_TiposDatos.ipynb)  
+- [Ej_LimpiezaDatos.ipynb](Ej_LimpiezaDatos.ipynb)  
+- [Holamundo(1).ipynb](Holamundo(1).ipynb)
 
 **Actividades**  
 - Actividad 2
