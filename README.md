@@ -36,7 +36,7 @@ Juan Ocampo
   
 **Actividades**
 - Actividad 2
-- [actividad-numero-1](actividad-numero-1.ipynb)
+- [actividad-numero-1](actividad-numero-1)
 - Actividad 3  
 - Actividad 4  
 - Actividad 5
