@@ -19,15 +19,12 @@ Soy estudiante apasionado por aprender **robótica**, la **minería de datos** y
 ## Cómo contactarme
 - GitHub: [Juan1317-code](https://github.com/Juan1317-code)
 
-# Ejercicios_MineriadeDatos
-
-Repositorio creado para almacenar los ejercicios realizados en la materia de **Minería de Datos**.
 
 **Autor**  
 Juan Ocampo  
 
 **Enlaces**  
-- [Perfil GitHub](https://github.com/Juan1317-code)  
+- [Perfil GitHub](https://github.com/Juan1317-code)
 
 **Contenido**  
 - Ejemplo básico simple  
