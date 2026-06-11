@@ -30,11 +30,11 @@ Juan Ocampo
 - Ejemplo básico simple  
 - Ej_TiposDatos.ipynb  
 - Ej_LimpiezaDatos.ipynb
-- Holamundo(1).pynb
+- [Holamundo(1),ipynb](Holamundo(1).ipynb
 
 **Actividades**  
 - Actividad 2
-- actividad numero 1 (actividad.ipynb)
+- actividad nu
 - Actividad 3  
 - Actividad 4  
 - Actividad 5
