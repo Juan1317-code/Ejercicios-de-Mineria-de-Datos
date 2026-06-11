@@ -32,7 +32,7 @@ Juan Ocampo
 - Ej_LimpiezaDatos.ipynb  
 
 **Actividades**  
-- actividad numero 1  
+- actividad numero 1
 - Actividad 2  
 - Actividad 3  
 - Actividad 4  
