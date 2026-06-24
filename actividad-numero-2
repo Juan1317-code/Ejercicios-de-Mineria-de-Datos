@@ -1,16 +1,16 @@
 #21-Mayo-2026
 
 # Int
-edad = 20
+edad = 33
 
 # Float
-promedio = 9.5
+promedio = 8.5
 
 # Boolean
 alumno_aprobado = True
 
 # String
-nombre = "Victor"
+nombre = "Jose Juan"
 
 print("Nombre del alumno:", nombre)
 print("Edad:", edad)
