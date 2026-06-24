@@ -27,17 +27,8 @@ Juan Ocampo
 - [Perfil GitHub](https://github.com/Juan1317-code)
 
 **Contenido**  
-- [Ejemplo básico simple](EjemploBasico.ipynb)  
-- [Ej_TiposDatos.ipynb](Ej_TiposDatos.ipynb)  
-- [Ej_LimpiezaDatos.ipynb](Ej_LimpiezaDatos.ipynb)  
-- [HolaMundo (1).ipynb](HolaMundo20%(1).ipynb)
 - [MINERIA_DE_DATOS](MINERIA_DE_DATOS.ipynb)
 
   
 **Actividades**
-- Actividad 2
 - [actividad-numero-1](actividad-numero-1)
-- [actividad-numero-1](actividad_numero_1.ipynb)
-- Actividad 3  
-- Actividad 4  
-- Actividad 5
