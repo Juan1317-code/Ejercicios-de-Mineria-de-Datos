@@ -1,0 +1,6 @@
+clave = ""
+
+while clave != "cali123":
+    clave = input("Ingresa la contraseña: ")
+
+print("Contraseña correcta.")
