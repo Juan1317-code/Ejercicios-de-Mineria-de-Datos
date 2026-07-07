@@ -29,7 +29,7 @@ Juan Ocampo
 **Contenido**  
 - [MINERIA_DE_DATOS](MINERIA_DE_DATOS.ipynb)
 
-  
+**Actividades del Primer Parcial**
 
 - [actividad-numero-1](actividad-numero-1)
 - [actividad-numero-2](actividad-numero-2)
