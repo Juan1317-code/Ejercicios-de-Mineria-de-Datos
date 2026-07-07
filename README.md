@@ -30,7 +30,7 @@ Juan Ocampo
 - [MINERIA_DE_DATOS](MINERIA_DE_DATOS.ipynb)
 
   
-**Actividades**
+
 - [actividad-numero-1](actividad-numero-1)
 - [actividad-numero-2](actividad-numero-2)
 - [actividad-numero-3](actividad-numero-3)
@@ -52,4 +52,7 @@ Juan Ocampo
 - [actividad-numero-19](actividad-numero-19)
 - [actividad-numero-20](actividad-numero-20)
 - [actividad-numero-21](actividad-numero-21)
+- [actividad-numero-22](actividad-numero-22)
+
+**Actividades del Segundo Parcial**
 - [actividad-numero-22](actividad-numero-22)
