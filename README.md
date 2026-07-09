@@ -55,4 +55,6 @@ Juan Ocampo
 - [actividad-numero-22](actividad-numero-22)
 
 **Actividades del Segundo Parcial**
-- [actividad-numero-22](actividad-numero-22)
+- [medidas_de_central_1](medididas_de_central_1)
+- [medidas_de_dispercion_2](medididas_de_dispercion_2)
+- [correlacion_3](correlacion_3)
