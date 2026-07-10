@@ -58,3 +58,4 @@ Juan Ocampo
 - [medidas_de_central_1](medidas_de_central_1)
 - [medidas_de_dispercion_2](medidas_de_dispercion_2)
 - [correlacion_3](correlacion_3)
+- [graficas_4](graficas_4)
