@@ -1,78 +1,182 @@
 #graficas
 
-#Tabla de Dispercion Horas de estudio vs Calificacion Final
+import pandas as pd
+import matplotlib.pyplot as plt
 
-plt.scatter(df["Horas_Estudio"], df["Calificacion_Final"])
-plt.xlabel("Horas de estudio")
+df = pd.read_csv("estudiantes.csv")
+
+
+# Matrícula vs Calificación Final
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Matricula"], df["Calificacion_Final"])
+plt.xlabel("Matrícula")
 plt.ylabel("Calificación Final")
-plt.title("Horas de Estudio vs Calificación Final")
+plt.title("Matrícula vs Calificación Final")
+plt.grid(True)
 plt.show()
 
-#Tabla de Dispercion Asistencia vs Calificacion Final
 
-plt.scatter(df["Asistencia"], df["Calificacion_Final"])
-plt.xlabel("Asistencia")
-plt.ylabel("Calificación Final")
-plt.title("Asistencia vs Calificación Final")
-plt.show()
+# Edad vs Calificación Final
 
-#Tabla de Dispercion Tareas vs Calificacion Final
-
-plt.scatter(df["Tareas"], df["Calificacion_Final"])
-plt.xlabel("Tareas")
-plt.ylabel("Calificación Final")
-plt.title("Tareas vs Calificación Final")
-plt.show()
-
-#Tabla de Dispercion Examen vs Calificacion Final
-
-plt.scatter(df["Examen"], df["Calificacion_Final"])
-plt.xlabel("Examen")
-plt.ylabel("Calificación Final")
-plt.title("Examen vs Calificación Final")
-plt.show()
-
-#Tabla de Dispercion Examen vs Calificacion Final
-
+plt.figure(figsize=(6,4))
 plt.scatter(df["Edad"], df["Calificacion_Final"])
 plt.xlabel("Edad")
 plt.ylabel("Calificación Final")
 plt.title("Edad vs Calificación Final")
+plt.grid(True)
 plt.show()
 
-#Tabla de Dispercion Matricula vs Calificacion Final
 
-plt.scatter(df["Matricula"], df["Calificacion_Final"])
-plt.xlabel("Matricula")
+# Asistencia vs Calificación Final
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Asistencia"], df["Calificacion_Final"])
+plt.xlabel("Asistencia")
 plt.ylabel("Calificación Final")
-plt.title("Matricula vs Calificación Final")
+plt.title("Asistencia vs Calificación Final")
+plt.grid(True)
 plt.show()
 
 
+# Tareas vs Calificación Final
 
-#Practica 4 (Tarea)
-
-#Grafica de Barras (Asistencia)
-
-plt.bar(df["Nombre"], df["Asistencia"])
-plt.xlabel("Estudiante")
-plt.ylabel("Asistencias")
-plt.title("Asistencias por estudiante")
-plt.xticks(rotation=90)
-plt.tight_layout()
+plt.figure(figsize=(6,4))
+plt.scatter(df["Tareas"], df["Calificacion_Final"])
+plt.xlabel("Tareas")
+plt.ylabel("Calificación Final")
+plt.title("Tareas vs Calificación Final")
+plt.grid(True)
 plt.show()
 
-#Histograma (Tareas)
 
-plt.hist(df["Tareas"], bins=5)
-plt.xlabel("Calificación de tareas")
-plt.ylabel("Cantidad de estudiantes")
-plt.title("Calificaciones de tareas")
+# Examen vs Calificación Final
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Examen"], df["Calificacion_Final"])
+plt.xlabel("Examen")
+plt.ylabel("Calificación Final")
+plt.title("Examen vs Calificación Final")
+plt.grid(True)
 plt.show()
 
-#Boxplot (Examen)
 
-plt.boxplot(df["Examen"])
-plt.ylabel("Calificación del examen")
-plt.title("Calificaciones del examen")
+# Examen vs Tareas
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Examen"], df["Tareas"])
+plt.xlabel("Examen")
+plt.ylabel("Tareas")
+plt.title("Examen vs Tareas")
+plt.grid(True)
+plt.show()
+
+
+# Tareas vs Asistencia
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Tareas"], df["Asistencia"])
+plt.xlabel("Tareas")
+plt.ylabel("Asistencia")
+plt.title("Tareas vs Asistencia")
+plt.grid(True)
+plt.show()
+
+
+# Matrícula vs Edad
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Matricula"], df["Edad"])
+plt.xlabel("Matrícula")
+plt.ylabel("Edad")
+plt.title("Matrícula vs Edad")
+plt.grid(True)
+plt.show()
+
+
+# Edad vs Examen
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Edad"], df["Examen"])
+plt.xlabel("Edad")
+plt.ylabel("Examen")
+plt.title("Edad vs Examen")
+plt.grid(True)
+plt.show()
+
+
+# Edad vs Tareas
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Edad"], df["Tareas"])
+plt.xlabel("Edad")
+plt.ylabel("Tareas")
+plt.title("Edad vs Tareas")
+plt.grid(True)
+plt.show()
+
+
+# Edad vs Asistencia
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Edad"], df["Asistencia"])
+plt.xlabel("Edad")
+plt.ylabel("Asistencia")
+plt.title("Edad vs Asistencia")
+plt.grid(True)
+plt.show()
+
+
+# Asistencia vs Examen
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Asistencia"], df["Examen"])
+plt.xlabel("Asistencia")
+plt.ylabel("Examen")
+plt.title("Asistencia vs Examen")
+plt.grid(True)
+plt.show()
+
+
+# Asistencia vs Tareas
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Asistencia"], df["Tareas"])
+plt.xlabel("Asistencia")
+plt.ylabel("Tareas")
+plt.title("Asistencia vs Tareas")
+plt.grid(True)
+plt.show()
+
+
+# Matrícula vs Examen
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Matricula"], df["Examen"])
+plt.xlabel("Matrícula")
+plt.ylabel("Examen")
+plt.title("Matrícula vs Examen")
+plt.grid(True)
+plt.show()
+
+
+# Matrícula vs Tareas
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Matricula"], df["Tareas"])
+plt.xlabel("Matrícula")
+plt.ylabel("Tareas")
+plt.title("Matrícula vs Tareas")
+plt.grid(True)
+plt.show()
+
+
+# Matrícula vs Asistencia
+
+plt.figure(figsize=(6,4))
+plt.scatter(df["Matricula"], df["Asistencia"])
+plt.xlabel("Matrícula")
+plt.ylabel("Asistencia")
+plt.title("Matrícula vs Asistencia")
+plt.grid(True)
 plt.show()
