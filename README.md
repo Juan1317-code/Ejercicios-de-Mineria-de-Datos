@@ -59,3 +59,4 @@ Juan Ocampo
 - [medidas_de_dispercion_2](medidas_de_dispercion_2)
 - [correlacion_3](correlacion_3)
 - [graficas_4](graficas_4)
+- [arbol_5.jpeg](arbol_5.jpeg)
