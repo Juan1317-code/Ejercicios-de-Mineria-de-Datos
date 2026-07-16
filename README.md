@@ -60,3 +60,4 @@ Juan Ocampo
 - [correlacion_3](correlacion_3)
 - [graficas_4](graficas_4)
 - [arbol_5.jpeg](arbol_5.jpeg)
+- [pract](graficas_4)
