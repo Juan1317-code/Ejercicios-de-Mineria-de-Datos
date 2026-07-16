@@ -1,0 +1,74 @@
+# Estadística y Modelos practica 7
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+
+# 1. Cargar datos
+df = pd.read_csv("dataset_sucursales_mensual.csv").dropna()
+
+df["Cumplio_Meta"] = df["Cumplio_Meta"].map({"Si": 1, "Sí": 1, "No": 0})
+
+# 2. Medidas de tendencia central y dispersión
+numericos = df.select_dtypes(include=["int64", "float64"])
+estadisticos = pd.DataFrame({
+    "Media": numericos.mean(),
+    "Mediana": numericos.median(),
+    "Moda": numericos.mode().iloc[0],
+    "Varianza": numericos.var(),
+    "Desviación Estándar": numericos.std(),
+    "Rango": numericos.max() - numericos.min()
+})
+print("\n--- Estadísticos ---\n", estadisticos)
+
+# 3. Correlaciones con Ventas
+correlaciones = {
+    "Publicidad vs Ventas": df["Gasto_Publicidad"].corr(df["Ventas_Totales"]),
+    "Clientes vs Ventas": df["Clientes_Atendidos"].corr(df["Ventas_Totales"]),
+    "Satisfacción vs Ventas": df["Satisfaccion_Cliente"].corr(df["Ventas_Totales"]),
+    "Descuento vs Ventas": df["Descuento_Promedio"].corr(df["Ventas_Totales"])
+}
+print("\n--- Correlaciones ---")
+for k, v in correlaciones.items():
+    print(f"{k}: {v:.4f}")
+
+# 4. Clasificación (Árbol, Naive Bayes, Logística)
+X = df[[
+    "Numero_Empleados", "Clientes_Atendidos", "Visitas_Web",
+    "Gasto_Publicidad", "Descuento_Promedio", "Satisfaccion_Cliente",
+    "Ticket_Promedio", "Devoluciones", "Ventas_Totales"
+]]
+y = df["Cumplio_Meta"]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+modelos = {
+    "Árbol de decisión": DecisionTreeClassifier(random_state=42),
+    "Naive Bayes": GaussianNB(),
+    "Regresión logística": LogisticRegression(max_iter=1000)
+}
+
+print("\n--- Modelos de Clasificación ---")
+for nombre, modelo in modelos.items():
+    modelo.fit(X_train, y_train)
+    pred = modelo.predict(X_test)
+    print(f"{nombre} -> Exactitud: {accuracy_score(y_test, pred):.4f}")
+
+# Ejemplo de predicción con nuevos datos
+nuevo = pd.DataFrame([{
+    "Numero_Empleados": 15,
+    "Clientes_Atendidos": 1200,
+    "Visitas_Web": 25000,
+    "Gasto_Publicidad": 18000,
+    "Descuento_Promedio": 5,
+    "Satisfaccion_Cliente": 4.5,
+    "Ticket_Promedio": 1450,
+    "Devoluciones": 12,
+    "Ventas_Totales": 850000
+}])
+
+print("\n--- Predicciones con nuevo registro ---")
+for nombre, modelo in modelos.items():
+    print(f"{nombre}: {modelo.predict(nuevo)}")
