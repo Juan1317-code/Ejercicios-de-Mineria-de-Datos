@@ -62,3 +62,4 @@ Juan Ocampo
 - [arbol_5.jpeg](arbol_5.jpeg)
 - [Practica_en_clase_6](Practica_en_clase_6)
 - [Estadística_y_Modelos_Practica_7](Estadística_y_Modelos_Practica_7)
+- [cuadro_comparativo.jpeg](cuadro_comparativo.jpeg)
