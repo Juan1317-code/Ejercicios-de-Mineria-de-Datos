@@ -63,3 +63,6 @@ Juan Ocampo
 - [Practica_en_clase_6](Practica_en_clase_6)
 - [Estadística_y_Modelos_Practica_7](Estadística_y_Modelos_Practica_7)
 - [cuadro_comparativo.jpeg](cuadro_comparativo.jpeg)
+
+**Actividades del Tercer Parcial**
+- [K-Means practica1](K-Means practica1)  
