@@ -1,0 +1,101 @@
+#practica en clase
+
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+
+df = pd.read_csv("clientes3.csv")
+
+X = df[[
+    "Compras",
+    "Total_Gastado",
+    "Dias_Entre_Compras"
+]]
+
+X = X.dropna()
+escalador = StandardScaler()
+X_escalado = escalador.fit_transform(X)
+
+modelo = KMeans(n_clusters=3, random_state=42, n_init=10)
+
+clusters = modelo.fit_predict(X_escalado)
+
+df_limpio = X.copy()
+df_limpio["Cluster"] = clusters
+
+print(df_limpio)
+print(df_limpio.groupby("Cluster").mean())
+
+#actividad
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+
+df = pd.read_csv("dataset_clientes3.csv")
+
+X = df[[
+    "Compras_Mensuales",
+    "Gasto_Mensual_MXN",
+   "Visitas_Web_Mensuales"
+]]
+
+X = X.dropna()
+escalador = StandardScaler()
+X_escalado = escalador.fit_transform(X)
+
+modelo = KMeans(n_clusters=3, random_state=42, n_init=10)
+
+clusters = modelo.fit_predict(X_escalado)
+
+df_limpio = X.copy()
+df_limpio["Cluster"] = clusters
+
+print(df_limpio)
+print(df_limpio.groupby("Cluster").mean())
+
+#agregacion de inercias
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("dataset_clientes3.csv")
+
+X = df[[
+    "Compras_Mensuales",
+    "Gasto_Mensual_MXN",
+   "Visitas_Web_Mensuales"
+]]
+
+X = X.dropna()
+escalador = StandardScaler()
+X_escalado = escalador.fit_transform(X)
+
+modelo = KMeans(n_clusters=3, random_state=42, n_init=10)
+
+clusters = modelo.fit_predict(X_escalado)
+
+df_limpio = X.copy()
+df_limpio["Cluster"] = clusters
+
+print(df_limpio)
+print(df_limpio.groupby("Cluster").mean())
+inercias = []
+
+max_k = min(7, len(X_escalado))
+
+for k in range(1, max_k + 1):
+    modelo = KMeans(
+        n_clusters=k,
+        random_state=42,
+        n_init=10
+    )
+    modelo.fit(X_escalado)
+    
+    inercias.append(modelo.inertia_)
+
+plt.plot(range(1, max_k + 1), inercias, marker="o")
+plt.xlabel("Número de clusters K")
+plt.ylabel("Inercia")
+plt.title("Método del codo")
+plt.show()
