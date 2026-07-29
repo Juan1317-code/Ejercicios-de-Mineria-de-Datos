@@ -66,4 +66,4 @@ Juan Ocampo
 
 **Actividades del Tercer Parcial**
 - [K_Means_practica1](K_Means_practica1)
-- [grafica_de_inercia.png](grafica)
+- [grafica_de_inercia.png](grafica_de_inercia.png)
