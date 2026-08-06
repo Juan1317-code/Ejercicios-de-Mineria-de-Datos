@@ -68,4 +68,4 @@ Juan Ocampo
 - [K_Means_practica1](K_Means_practica1)
 - [grafica_de_inercia.png](grafica_de_inercia.png)
 - [Red_Neuronal_Practica2](Red_Neuronal_Practica2)
-- [grafica de red neuronal.png](grafica)
+- [grafica_de_red_neuronal.png](grafica_de_red_neuronal.png)
