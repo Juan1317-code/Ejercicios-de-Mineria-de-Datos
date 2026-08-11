@@ -69,4 +69,4 @@ Juan Ocampo
 - [grafica_de_inercia.png](grafica_de_inercia.png)
 - [Red_Neuronal_Practica2](Red_Neuronal_Practica2)
 - [grafica_de_red_neuronal.png](grafica_de_red_neuronal.png)
-- [equipos de computo](equipos_de_computo)
+- [equipos de computo](equipos_de_computo_practica3)
