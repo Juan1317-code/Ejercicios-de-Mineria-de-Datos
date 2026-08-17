@@ -70,3 +70,5 @@ Juan Ocampo
 - [Red_Neuronal_Practica2](Red_Neuronal_Practica2)
 - [grafica_de_red_neuronal.png](grafica_de_red_neuronal.png)
 - [equipo de computo practica3](equipos_de_computo_practica3)
+- [análisis de textos publicados en redes sociales Práctica 4](Análisis_de_textos_publicados_en_redes_sociales_Práctica_4)
+- [análisis de textos publicados en redes sociales Práctica](Análisis_de_textos_publicados_en_redes_sociales_Práctica_grafica.png)
