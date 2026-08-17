@@ -1,0 +1,213 @@
+# Práctica 4
+# Análisis de textos publicados en redes sociales
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from collections import Counter
+import re
+
+# Cargar el archivo
+datos = pd.read_csv("practica_mineria_textos_redes_sociales.csv")
+
+print("Vista previa de los datos:")
+print(datos.head())
+
+print("\nTotal de publicaciones analizadas:")
+print(datos.shape[0])
+
+# Limpiar valores vacíos
+datos["Texto_Publicacion"] = datos["Texto_Publicacion"].fillna("")
+datos["Hashtags"] = datos["Hashtags"].fillna("")
+datos["Tema_Referencia"] = datos["Tema_Referencia"].fillna("Sin clasificar")
+datos["Sentimiento_Referencia"] = datos["Sentimiento_Referencia"].fillna("neutral")
+
+# Unir todas las publicaciones
+publicaciones = " ".join(datos["Texto_Publicacion"]).lower()
+
+# Obtener solamente palabras
+lista_palabras = re.findall(r"\b[a-záéíóúñü]+\b", publicaciones)
+
+# Palabras que no aportan información importante
+stopwords = {
+    "el", "la", "los", "las", "de", "del", "y", "a", "e", "en",
+    "un", "una", "unos", "unas", "que", "con", "por", "para",
+    "lo", "se", "su", "sus", "es", "al", "como", "más", "pero",
+    "muy", "me", "mi", "nos", "no", "este", "esta", "estos",
+    "estas", "fue", "son", "ha", "han"
+}
+
+# Quitar palabras vacías
+palabras_utiles = []
+
+for palabra in lista_palabras:
+    if palabra not in stopwords and len(palabra) > 2:
+        palabras_utiles.append(palabra)
+
+frecuencia_palabras = Counter(palabras_utiles)
+
+print("\nLas 10 palabras más utilizadas son:")
+for palabra, cantidad in frecuencia_palabras.most_common(10):
+    print(palabra, ":", cantidad)
+
+# Palabras utilizadas para identificar sentimientos
+vocabulario_positivo = {
+    "excelente", "buena", "bueno", "bien", "rápida", "rápido",
+    "claro", "clara", "fácil", "mejor", "mejora", "funciona",
+    "funcionando", "ordenado", "ordenada", "útil", "gracias",
+    "agradable", "correcto", "correcta", "genial", "felicidades",
+    "recomendable", "satisfecho", "satisfecha"
+}
+
+vocabulario_negativo = {
+    "mala", "malo", "problema", "problemas", "falló", "fallo",
+    "lenta", "lento", "confuso", "confusa", "difícil", "perdimos",
+    "cerró", "cayó", "faltan", "falta", "error", "errores",
+    "deficiente", "incompleto", "incompleta", "complicado",
+    "complicada", "molesto", "molesta", "pésimo", "pésima"
+}
+
+
+def clasificar_publicacion(publicacion):
+    """Clasifica una publicación como positiva, negativa o neutral."""
+
+    palabras_publicacion = re.findall(
+        r"\b[a-záéíóúñü]+\b",
+        str(publicacion).lower()
+    )
+
+    cantidad_positivas = 0
+    cantidad_negativas = 0
+
+    for palabra in palabras_publicacion:
+        if palabra in vocabulario_positivo:
+            cantidad_positivas += 1
+
+        if palabra in vocabulario_negativo:
+            cantidad_negativas += 1
+
+    if cantidad_positivas > cantidad_negativas:
+        sentimiento = "positivo"
+    elif cantidad_negativas > cantidad_positivas:
+        sentimiento = "negativo"
+    else:
+        sentimiento = "neutral"
+
+    return sentimiento
+
+
+# Clasificar todas las publicaciones
+datos["Sentimiento_Obtenido"] = datos["Texto_Publicacion"].apply(
+    clasificar_publicacion
+)
+
+print("\nResultado del análisis de sentimientos:")
+print(
+    datos[
+        ["Texto_Publicacion", "Sentimiento_Obtenido"]
+    ].head(20)
+)
+
+# Contar los resultados
+cantidad_sentimientos = datos["Sentimiento_Obtenido"].value_counts()
+
+print("\nNúmero de publicaciones por sentimiento:")
+print(cantidad_sentimientos)
+
+# Gráfica de sentimientos
+colores = {
+    "positivo": "green",
+    "neutral": "gray",
+    "negativo": "red"
+}
+
+colores_grafica = [
+    colores.get(sentimiento, "blue")
+    for sentimiento in cantidad_sentimientos.index
+]
+
+cantidad_sentimientos.plot(
+    kind="bar",
+    color=colores_grafica,
+    edgecolor="black"
+)
+
+plt.title("Sentimientos encontrados en las publicaciones")
+plt.xlabel("Tipo de sentimiento")
+plt.ylabel("Número de publicaciones")
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.show()
+
+# Análisis de sentimiento por cada tema
+resultado_temas = pd.crosstab(
+    datos["Tema_Referencia"],
+    datos["Sentimiento_Obtenido"]
+)
+
+print("\nDistribución de sentimientos por tema:")
+print(resultado_temas)
+
+# Extraer hashtags
+lista_hashtags = []
+
+for contenido in datos["Hashtags"]:
+    etiquetas_encontradas = re.findall(
+        r"#[a-záéíóúñü0-9_]+",
+        str(contenido).lower()
+    )
+
+    lista_hashtags.extend(etiquetas_encontradas)
+
+frecuencia_hashtags = Counter(lista_hashtags)
+
+print("\nHashtags con mayor cantidad de apariciones:")
+for hashtag, cantidad in frecuencia_hashtags.most_common(10):
+    print(hashtag, ":", cantidad)
+
+# Comparar el resultado con el sentimiento de referencia
+datos["Es_Correcto"] = (
+    datos["Sentimiento_Referencia"].str.lower()
+    == datos["Sentimiento_Obtenido"]
+)
+
+porcentaje_aciertos = datos["Es_Correcto"].mean() * 100
+
+print("\nComparación de sentimientos:")
+print(
+    datos[
+        [
+            "Sentimiento_Referencia",
+            "Sentimiento_Obtenido",
+            "Es_Correcto"
+        ]
+    ].head(20)
+)
+
+print("\nPorcentaje de coincidencia obtenido:")
+print(f"{porcentaje_aciertos:.2f}%")
+
+# Matriz de comparación
+matriz_resultados = pd.crosstab(
+    datos["Sentimiento_Referencia"],
+    datos["Sentimiento_Obtenido"],
+    rownames=["Sentimiento real"],
+    colnames=["Sentimiento obtenido"]
+)
+
+print("\nMatriz de comparación:")
+print(matriz_resultados)
+
+# Interpretación de los resultados
+
+print("\nInterpretación de los resultados:")
+print("\nConclusiones:")
+print("En esta práctica se analizaron 143 publicaciones obtenidas de diferentes redes sociales para identificar las opiniones de los usuarios sobre la institución.")
+print("Las palabras con mayor frecuencia fueron “estuvo”, “seguimiento”, “gracias”, “comparto” y “revisen”. Estas palabras reflejan que los usuarios comparten experiencias, agradecimientos, recomendaciones y solicitudes relacionadas con los servicios de la institución.")
+print("De acuerdo con la clasificación realizada, se encontraron 61 publicaciones neutrales, 52 positivas y 30 negativas. Por lo tanto, el sentimiento neutral fue el resultado más común.")
+print("En el análisis por temas se encontró que las clases y el WiFi acumulan una mayor cantidad de opiniones negativas. En cambio, los eventos, los trámites y la plataforma institucional presentan principalmente publicaciones positivas.")
+print("Los hashtags que aparecieron con mayor frecuencia fueron #utc con 47 menciones y #campus con 41. Esto demuestra que ambas etiquetas son utilizadas constantemente para identificar publicaciones relacionadas con la institución.")
+print("La comparación entre el sentimiento obtenido y el sentimiento de referencia alcanzó un porcentaje de coincidencia del 53.85%. El resultado demuestra que la clasificación puede reconocer algunas opiniones, aunque todavía presenta errores porque solamente cuenta palabras positivas y negativas sin comprender completamente el significado de cada publicación.")
+print("\nRecomendaciones:")
+print("Se recomienda revisar los comentarios sobre el WiFi y las clases para identificar las principales dificultades reportadas por los estudiantes y buscar posibles soluciones.")
+print("También es conveniente continuar con las actividades y servicios que producen opiniones positivas, especialmente los eventos, la plataforma y la atención durante los trámites.")
+print("Finalmente, se sugiere repetir este análisis periódicamente para conocer los cambios en las opiniones de los usuarios, detectar problemas y utilizar la información obtenida para mejorar los servicios de la institución.")
